@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      table,
+      th,
+      td {
+        padding: 0px;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <form id="formid" name="form">
+      <h1>Sanakirja</h1>
+      <br />
+      <h2>Lisää uusi sana</h2>
+      <table>
+        <tr>
+          <td align="right">Suomi:</td>
+          <td>
+            <input
+              name="suomi"
+              id="suomi"
+              type="text"
+              value=""
+              maxlength="35"
+              size="35"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td align="right">Englanti:</td>
+          <td>
+            <input
+              name="englanti"
+              id="englanti"
+              type="text"
+              value=""
+              maxlength="35"
+              size="35"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td align="right">Tallenna:</td>
+          <td>
+            <input name="Submit" type="button" value="Tallenna" />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <br />
+    <h2>Etsi sanakirjasta</h2>
+    <td align="right">Haettava sana:</td>
+    <input type="text" id="etsiSana" placeholder="Kirjoita sana suomeksi" />
+    <button id="etsiNappi">Etsi</button>
+    <p id="result"></p>
+    <button id="tyhjennaTulokset">Tyhjennä tulokset</button>
+
+    <script>
+      // jQuery koodia
+      // Funktio, joka lähettää POST pyynnön sanaparin tallentamisesta
+      $(document).ready(function () {
+        $('[name="Submit"]').click(function (e) {
+          var formData = {
+            suomi: $("#suomi").val(),
+            englanti: $("#englanti").val(),
+          };
+          $.ajax({
+            url: "http://localhost:3000/sanakirja",
+            type: "POST",
+            dataType: "json",
+            data: formData,
+            success: function (data) {
+              alert(JSON.stringify(data));
+            },
+            error: function (xhr, resp, text) {
+              console.log(xhr, resp, text);
+            },
+          });
+          e.preventDefault();
+        });
+      });
+
+      // jQuery koodia
+      // Funktio, joka hakee GET pyynnöllä suomenkielisen sanan ja palauttaa englanninkielisen sanan
+      $("#etsiNappi").click(function () {
+        const etsittavaSana = $("#etsiSana").val();
+        $.ajax({
+          url: `http://localhost:3000/sanakirja?suomi=${etsittavaSana}`,
+          type: "GET",
+          dataType: "json",
+          success: function (data) {
+            if (data.eng) {
+              $("#result").text(data.eng);
+            }
+          },
+          error: function (xhr, resp, text) {
+            if (xhr.status === 404) {
+              $("#result").text("Sanaa ei löytynyt!"); // Herja, jos sana ei löydy
+            } else {
+              console.log(xhr, resp, text);
+            }
+          },
+        });
+      });
+      $("#tyhjennaTulokset").click(function () {
+        $("#result").text(""); // Tulosten tyhjentäminen, jotta käyttäjä voi hakea uutta sanaa
+      });
+    </script>
+  </body>
+</html>

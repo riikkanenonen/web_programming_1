@@ -1,0 +1,9 @@
+auto car
+talo house
+koira dog
+kissa cat
+kala fish
+kirja book
+tietokone computer
+aurinko sun
+pilvi cloud
