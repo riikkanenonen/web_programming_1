@@ -1,0 +1,20 @@
+CREATE TABLE urheilija_tiedot.urheilijat (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  etunimi VARCHAR(255),
+  sukunimi VARCHAR(255),
+  kutsumanimi VARCHAR(255),
+  syntymavuosi DATE,
+  paino INT,
+  kuvalinkki VARCHAR(255),
+  laji VARCHAR(255),
+  saavutukset VARCHAR(255)
+);
+
+
+insert into urheilija_tiedot.urheilijat (etunimi, sukunimi, kutsumanimi, syntymavuosi, paino, kuvalinkki, laji, saavutukset)
+VALUES
+("Seppo", "Räty", "Seppo", "1962-04-27", 110, "https://fi.wikipedia.org/wiki/Seppo_R%C3%A4ty", "keihäänheitto", "Olympiahopea Barcelona v. 1992"),
+("Marja-Liisa", "Kirvesniemi", "Marja-Liisa", "1955-09-10",  70, "https://fi.wikipedia.org/wiki/Marja-Liisa_Kirvesniemi", "hiihto", "Olympiakulta Sarajevo v. 1984"),
+("Kaisa", "Mäkäräinen", "Kaisa", "1983-01-11", 60, "https://fi.wikipedia.org/wiki/Kaisa_M%C3%A4k%C3%A4r%C3%A4inen", "ampumahiihto", "Ampumahiihdon maailmancupin kokonaiskilpailun voitto v. 2018"),
+("Matti", "Nykänen", "Matti", "1963-07-17", 80, "https://fi.wikipedia.org/wiki/Matti_Nyk%C3%A4nen", "mäkihyppy", "Olympiakulta Sarajevo v. 1984"),
+("Lasse", "Virén", "Lasse", "1949-07-22", 85, "https://fi.wikipedia.org/wiki/Lasse_Vir%C3%A9n", "kestävyysjuoksu", "Olympiakulta München v. 1972");
