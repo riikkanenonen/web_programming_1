@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Viesti</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <h1 id="page-title">Riikka Nenonen - UEF</h1>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="index.html">Opintosuunnitelma 2023-2024</a></li>
+          <li><a href="syksy2023.html">Syksy 2023</a></li>
+          <li><a href="kevat2024.html">Kevät 2023</a></li>
+          <li><a href="seuranta.html">Opintojen seuranta</a></li>
+          <li>
+            <a class="active" href="paivitaTiedot.html">Päivitä tietoja</a>
+          </li>
+        </ul>
+      </div>
+      <div id="main">
+        <h1>Päivitä opintojen tilannetietoja</h1>
+        <p>
+          Lomakkeelle kirjatut tiedot päivittävät Opintojen seuranta -taulukkoa.
+        </p>
+        <form>
+          <div>
+            <label>Kurssin nimi</label><br />
+            <input type="text" name="nimi" />
+          </div>
+          <div>
+            <label>Tilanne</label><br />
+            <select name="tilanne">
+              <option value="Aloittamatta">Aloittamatta</option>
+              <option value="Käynnissä">Käynnissä</option>
+              <option value="Suoritettu">Suoritettu</option>
+            </select>
+          </div>
+          <div>
+            <label>Arvosana</label><br />
+            <input
+              type="radio"
+              name="arvosana"
+              value="1"
+              id="arvosana1"
+            /><label for="arvosana1">1</label>
+            <input
+              type="radio"
+              name="arvosana"
+              value="2"
+              id="arvosana2"
+            /><label for="arvosana2">2</label>
+            <input
+              type="radio"
+              name="arvosana"
+              value="3"
+              id="arvosana3"
+            /><label for="arvosana3">3</label>
+            <input
+              type="radio"
+              name="arvosana"
+              value="4"
+              id="arvosana4"
+            /><label for="arvosana4">4</label>
+            <input
+              type="radio"
+              name="arvosana"
+              value="5"
+              id="arvosana5"
+            /><label for="arvosana5">5</label>
+          </div>
+          <div>
+            <label>Huomioita</label><br />
+            <textarea name="nimi"></textarea>
+          </div>
+          <button type="submit">Lähetä</button>
+        </form>
+      </div>
+      <div class="clr"></div>
+      <div id="footer"></div>
+      <p>Copyright &copy;2023</p>
+    </div>
+  </body>
+</html>
